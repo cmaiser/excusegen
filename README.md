@@ -1,0 +1,4 @@
+excusegen
+=========
+
+Generator of excuses
