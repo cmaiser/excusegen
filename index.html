@@ -1,67 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
   <head>
-  <style>
-    #wrapper{
-      padding:10px 0px 25px 0px; 
-      background:#eeeedd;
-      width:700px;
-      border-radius:15px;
-      box-shadow: 10px 10px 5px #888888;
-    }
-    #location{
-      width: 640px;
-      background: #eeeeee;
-      border: 3px solid #bbbbaa;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      padding: 5px 0px 5px 0px;
-      
-    }
-    #location:hover{
-      background-color: #ddddaa;
-    }
-    img{
-      border: 3px solid #bbbbaa;
-      border-radius: 5px;
-    }
-    body{
-      background-color: #bbbbaa;
-    }
-    div{
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
+  <style src "css/excusegen.ccc"></style>
     <title>Excuse Generator</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <script>
-      $(document).ready(function(){
-      
-        var bannerDiv = $("#banner");
-	var msg = "<h1>Excuse&nbsp;Generator&nbsp;Coming&nbsp;Soon(ish)</h1>";
-	
-        bannerDiv.html(msg);
-	
-	if(navigator.geolocation){
-	  navigator.geolocation.getCurrentPosition(function(position){
-	  
-	    var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;Latitude&nbsp;=&nbsp;" + position.coords.latitude + 
-	                       "&#176;&nbsp;&nbsp;&nbsp;Longitude&nbsp;=&nbsp;" + position.coords.longitude + 
-			       "&#176;";
-	    var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
-	                       position.coords.latitude + "," + position.coords.longitude + 
-			       "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
-	    $("#location").append(positionHtml);
-	    $("#locationMap").append(positionMap);
-	    
-	  });
-	}
-	else{
-	  $("#location").text("Update your browser!");
-	}
-      });
-    </script>
+    <script src="script/excusegen.js"></script>
   </head>
   <body>
     <center><div id="wrapper"><div id="banner"></div><br /><div id="location"></div><div id="locationMap"></div></div></center>

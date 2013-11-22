@@ -1,0 +1,29 @@
+#wrapper{
+      padding:10px 0px 25px 0px; 
+      background:#eeeedd;
+      width:700px;
+      border-radius:15px;
+      box-shadow: 10px 10px 5px #888888;
+    }
+    #location{
+      width: 640px;
+      background: #eeeeee;
+      border: 3px solid #bbbbaa;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 5px 0px 5px 0px;
+      
+    }
+    #location:hover{
+      background-color: #ddddaa;
+    }
+    img{
+      border: 3px solid #bbbbaa;
+      border-radius: 5px;
+    }
+    body{
+      background-color: #bbbbaa;
+    }
+    div{
+      font-family: Arial, Helvetica, sans-serif;
+    }
