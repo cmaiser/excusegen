@@ -12,11 +12,9 @@ $(document).ready(function(){
     
     console.log("navigator.geolocation available");
     
-    var me = this;
-    
     navigator.geolocation.getCurrentPosition(function(position){
       
-      me.resolveLocation(position.coords.latitude, position.coords.longitude);
+      resolveLocation(position.coords.latitude, position.coords.longitude);
 	  
       var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;Latitude&nbsp;=&nbsp;" + position.coords.latitude + 
 			 "&#176;&nbsp;&nbsp;&nbsp;Longitude&nbsp;=&nbsp;" + position.coords.longitude + 
@@ -34,7 +32,9 @@ $(document).ready(function(){
 });
 
 function resolveLocation(lat, lon){
-  alert("function hit");
+  
+  console.log("resolveLocation");
+  
   $.ajax({
     type: "POST",
     url: "http://54.204.21.196/excusegenservice/locationResolver",
