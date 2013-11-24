@@ -51,11 +51,11 @@ function resolveLocation(lat, lon){
     success: function(data){
       var responseJSON = jQuery.parseJSON(data);
       
-      var city = responseJSON.results[0].address_componenents[4].long_name;
-      var state = responseJSON.results[0].address_componenents[5].long_name;
-      var country = responseJSON.results[0].address_componenents[6].long_name;
+      var city = responseJSON.results[0];//.address_componenents[4].long_name;
+      //var state = responseJSON.results[0].address_componenents[5].long_name;
+      //var country = responseJSON.results[0].address_componenents[6].long_name;
       
-      alert(responsejson);
+      //alert(responsejson);
     },
     error: function(xhr, textStatus, errorThrown){
       alert("Error connecting to server!");
