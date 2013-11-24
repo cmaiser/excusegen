@@ -22,4 +22,9 @@ $(document).ready(function(){
   else{
     $("#location").text("Update your browser!");
   }
+  tryThis();
 });
+
+function tryThis(){
+  alert("jquery called this");
+}
