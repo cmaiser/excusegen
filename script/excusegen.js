@@ -8,6 +8,8 @@ $(document).ready(function(){
 	
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(position){
+      
+      resolveLocation(position.coords.latitude, position.coords.longitude);
 	  
       var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;Latitude&nbsp;=&nbsp;" + position.coords.latitude + 
 			 "&#176;&nbsp;&nbsp;&nbsp;Longitude&nbsp;=&nbsp;" + position.coords.longitude + 
@@ -22,9 +24,22 @@ $(document).ready(function(){
   else{
     $("#location").text("Update your browser!");
   }
-  tryThis();
 });
 
-function tryThis(){
-  alert("jquery called this");
+function resolveLocation(lat, lon){
+  $.ajax({
+    type: "POST",
+    url: "http://54.204.21.196/excusegenservice/locationResolver",
+    data: {
+      lat: lat,
+      lon: lon
+    },
+    success: function(data){
+      alert(data);
+    }
+    error: function(xhr, textStatus, errorThrown){
+      alert("Error: " +errorThrown+xhr.status+xhr.responseText);
+    }
+    
+  });
 }
