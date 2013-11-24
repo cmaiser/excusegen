@@ -43,7 +43,13 @@ function resolveLocation(lat, lon){
       lon: lon
     },
     success: function(data){
-      alert(data);
+      var responseJSON = jQuery.parseJSON(data);
+      
+      var city = responseJSON[0].results[4].long_name;
+      var state = responseJSON[0].results[5].long_name;
+      var country = responseJSON[0].results[6].long_name;
+      
+      alert(city + " " + state + " " + country);
     },
     error: function(xhr, textStatus, errorThrown){
       alert("Error connecting to server!");
