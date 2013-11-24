@@ -1,12 +1,6 @@
 
 $(document).ready(function(){
   
-  //var goddamnit = "{\"results\" : [{ \"address_components\" : [{\"long_name\" : \"3901-3947\", \"short_name\" : \"3901-3947\", \"types\" : [ \"street_number\" ]}]}]}";
-  
-  var bob;
-  
-  
-  
   console.log("Document Ready");
   
   var bannerDiv = $("#banner");
@@ -22,7 +16,7 @@ $(document).ready(function(){
       
       var location = resolveLocation(position.coords.latitude, position.coords.longitude);
       
-      console.log(location);
+      console.log("Location: " + location);
 	  
       var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;" + location;
       var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
@@ -39,7 +33,6 @@ $(document).ready(function(){
 
 function resolveLocation(lat, lon){
   
-  
   $.ajax({
     type: "POST",
     url: "http://54.204.21.196/excusegenservice/locationResolver/",
@@ -54,8 +47,6 @@ function resolveLocation(lat, lon){
       var state = responseJSON.results[0].address_components[5].long_name;
       var country = responseJSON.results[0].address_components[6].long_name;
       
-      
-      console.log("location: " + city + ", " + state + ", " + country);
       return city + ", " + state + ", " + country;
     },
     error: function(xhr, textStatus, errorThrown){
