@@ -55,7 +55,7 @@ function resolveLocation(lat, lon){
       //var state = responseJSON.results[0].address_componenents[5].long_name;
       //var country = responseJSON.results[0].address_componenents[6].long_name;
       
-      console.log("json: " + city);
+      console.log("json: responseJSON.results[0].address_components[4].long_name " + city);
     },
     error: function(xhr, textStatus, errorThrown){
       alert("Error connecting to server!");
