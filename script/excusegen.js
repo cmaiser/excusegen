@@ -50,13 +50,10 @@ function resolveLocation(lat, lon){
       var responseJSON = jQuery.parseJSON(data);
       
       var city = responseJSON.results[0].address_components[4].long_name;
-      console.log(city);
       var state = responseJSON.results[0].address_components[5].long_name;
-      console.log(state);
       var country = responseJSON.results[0].address_components[6].long_name;
-      console.log(country);
       
-      //return city + ", " + state + ", " + country;
+      return city + ", " + state + ", " + country;
     },
     error: function(xhr, textStatus, errorThrown){
       alert("Error connecting to server!");
