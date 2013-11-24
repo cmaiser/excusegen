@@ -46,7 +46,7 @@ function resolveLocation(lat, lon){
       alert(data);
     },
     error: function(xhr, textStatus, errorThrown){
-      alert("Error: " +errorThrown+xhr.status+xhr.responseText);
+      alert("Error connecting to server!");
     }
     
   });
