@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 function resolveLocation(lat, lon){
   
-  var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;" + location;
+  var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;";
   
   $.ajax({
     type: "POST",
