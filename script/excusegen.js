@@ -14,15 +14,12 @@ $(document).ready(function(){
     
     navigator.geolocation.getCurrentPosition(function(position){
       
-      var location = resolveLocation(position.coords.latitude, position.coords.longitude);
+      resolveLocation(position.coords.latitude, position.coords.longitude);
       
-      console.log("Location: " + location);
-	  
-      var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;" + location;
       var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
 	                position.coords.latitude + "," + position.coords.longitude + 
 	                "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
-      $("#location").append(positionHtml);
+   
       $("#locationMap").append(positionMap);    
     });
   }
@@ -32,6 +29,8 @@ $(document).ready(function(){
 });
 
 function resolveLocation(lat, lon){
+  
+  var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;" + location;
   
   $.ajax({
     type: "POST",
@@ -47,9 +46,7 @@ function resolveLocation(lat, lon){
       var state = responseJSON.results[0].address_components[5].long_name;
       var country = responseJSON.results[0].address_components[6].long_name;
       
-      console.log(city + ", " + state + ", " + country);
-      
-      return city + ", " + state + ", " + country;
+      $("#location").append(positionHtml + city + ",&nbsp;" + state + ",&nbsp;" + country);
     },
     error: function(xhr, textStatus, errorThrown){
       alert("Error connecting to server!");
