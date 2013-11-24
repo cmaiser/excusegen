@@ -27,6 +27,7 @@ $(document).ready(function(){
 });
 
 function resolveLocation(lat, lon){
+  alert("function hit");
   $.ajax({
     type: "POST",
     url: "http://54.204.21.196/excusegenservice/locationResolver",
