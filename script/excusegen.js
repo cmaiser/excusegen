@@ -51,9 +51,9 @@ function resolveLocation(lat, lon){
       
       var city = responseJSON.results[0].address_components[4].long_name;
       console.log(city);
-      var state = responseJSON.results[0].address_componenents[5].long_name;
+      var state = responseJSON.results[0].address_components[5].long_name;
       console.log(state);
-      var country = responseJSON.results[0].address_componenents[6].long_name;
+      var country = responseJSON.results[0].address_components[6].long_name;
       console.log(country);
       
       //return city + ", " + state + ", " + country;
