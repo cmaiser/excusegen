@@ -49,7 +49,7 @@ function resolveLocation(lat, lon){
       $("#location").append(positionHtml + city + ",&nbsp;" + state + ",&nbsp;" + country);
     },
     error: function(xhr, textStatus, errorThrown){
-      alert("Error connecting to server!");
+      $("#location").append("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus);
     }
     
   });
