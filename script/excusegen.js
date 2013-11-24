@@ -22,7 +22,7 @@ $(document).ready(function(){
       
       var location = resolveLocation(position.coords.latitude, position.coords.longitude);
 	  
-      var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;location";
+      var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;" + location;
       var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
 	                position.coords.latitude + "," + position.coords.longitude + 
 	                "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
@@ -37,7 +37,6 @@ $(document).ready(function(){
 
 function resolveLocation(lat, lon){
   
-  console.log("resolveLocation");
   
   $.ajax({
     type: "POST",
