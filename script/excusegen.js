@@ -44,7 +44,7 @@ function resolveLocation(lat, lon){
     },
     success: function(data){
       alert(data);
-    }
+    },
     error: function(xhr, textStatus, errorThrown){
       alert("Error: " +errorThrown+xhr.status+xhr.responseText);
     }
