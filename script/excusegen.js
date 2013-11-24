@@ -1,15 +1,22 @@
 
 $(document).ready(function(){
   
+  console.log("Document Ready");
+  
   var bannerDiv = $("#banner");
   var msg = "<h1>Excuse&nbsp;Generator&nbsp;Coming&nbsp;Soon(ish)</h1>";
 	
   bannerDiv.html(msg);
 	
   if(navigator.geolocation){
+    
+    console.log("navigator.geolocation available");
+    
+    var me = this;
+    
     navigator.geolocation.getCurrentPosition(function(position){
       
-      resolveLocation(position.coords.latitude, position.coords.longitude);
+      me.resolveLocation(position.coords.latitude, position.coords.longitude);
 	  
       var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;Latitude&nbsp;=&nbsp;" + position.coords.latitude + 
 			 "&#176;&nbsp;&nbsp;&nbsp;Longitude&nbsp;=&nbsp;" + position.coords.longitude + 
