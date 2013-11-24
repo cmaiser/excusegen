@@ -1,6 +1,12 @@
 
 $(document).ready(function(){
   
+  //var goddamnit = "{\"results\" : [{ \"address_components\" : [{\"long_name\" : \"3901-3947\", \"short_name\" : \"3901-3947\", \"types\" : [ \"street_number\" ]}]}]}";
+  
+  var bob;
+  
+  
+  
   console.log("Document Ready");
   
   var bannerDiv = $("#banner");
@@ -49,7 +55,7 @@ function resolveLocation(lat, lon){
       var state = responseJSON.results[0].address_componenents[5].long_name;
       var country = responseJSON.results[0].address_componenents[6].long_name;
       
-      alert(city + " " + state + " " + country);
+      alert(responsejson);
     },
     error: function(xhr, textStatus, errorThrown){
       alert("Error connecting to server!");
