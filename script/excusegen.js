@@ -51,7 +51,7 @@ function resolveLocation(lat, lon){
     success: function(data){
       var responseJSON = jQuery.parseJSON(data);
       
-      var city = responseJSON.results[0].address_components[4];//.long_name;
+      var city = responseJSON.results[0].address_components[4].long_name;
       //var state = responseJSON.results[0].address_componenents[5].long_name;
       //var country = responseJSON.results[0].address_componenents[6].long_name;
       
