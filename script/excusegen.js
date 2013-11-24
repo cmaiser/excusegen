@@ -20,11 +20,9 @@ $(document).ready(function(){
     
     navigator.geolocation.getCurrentPosition(function(position){
       
-      resolveLocation(position.coords.latitude, position.coords.longitude);
+      var location = resolveLocation(position.coords.latitude, position.coords.longitude);
 	  
-      var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;Latitude&nbsp;=&nbsp;" + position.coords.latitude + 
-			 "&#176;&nbsp;&nbsp;&nbsp;Longitude&nbsp;=&nbsp;" + position.coords.longitude + 
-		         "&#176;";
+      var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;location";
       var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
 	                position.coords.latitude + "," + position.coords.longitude + 
 	                "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
@@ -52,10 +50,10 @@ function resolveLocation(lat, lon){
       var responseJSON = jQuery.parseJSON(data);
       
       var city = responseJSON.results[0].address_components[4].long_name;
-      //var state = responseJSON.results[0].address_componenents[5].long_name;
-      //var country = responseJSON.results[0].address_componenents[6].long_name;
+      var state = responseJSON.results[0].address_componenents[5].long_name;
+      var country = responseJSON.results[0].address_componenents[6].long_name;
       
-      console.log("json: responseJSON.results[0].address_components[4].long_name " + city);
+      return city + ", " + state + ", " + country;
     },
     error: function(xhr, textStatus, errorThrown){
       alert("Error connecting to server!");
