@@ -45,7 +45,7 @@ function resolveLocation(lat, lon){
       var responseJSON = jQuery.parseJSON(data);
       var addressComponents = [];
       
-      if(typeof(responseJSON.results[0].address_components !== "undefined"){
+      if(typeof(responseJSON.results[0].address_components !== "undefined")){
 	addressComponents = responseJSON.results[0].address_components;
       }
       
