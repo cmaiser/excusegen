@@ -3,7 +3,7 @@ $(document).ready(function(){
   
   console.log("Document Ready");
   
-  ("#location").text("Resolving location...");
+  $("#location").text("Resolving location...");
 	
   if(navigator.geolocation){
     
