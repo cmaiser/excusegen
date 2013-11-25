@@ -3,7 +3,7 @@ $(document).ready(function(){
   
   console.log("Document Ready");
   
-  $("#location").text("Resolving location...");
+  $("#location").html("Resolving location...");
 	
   if(navigator.geolocation){
     
@@ -17,13 +17,11 @@ $(document).ready(function(){
     });
   }
   else{
-    $("#location").text("Update your browser!");
+    $("#location").html("Update&nbsp;your&nbsp;browser!");
   }
 });
 
 function resolveLocation(lat, lon){
-  
-  var msg = "Your&nbsp;location:&nbsp;&nbsp;";
   
   $.ajax({
     type: "POST",
@@ -65,16 +63,20 @@ function resolveLocation(lat, lon){
 	}
       }
       
-      msg += city + ",&nbsp;" + state + ",&nbsp;" + country;
+      $("#location").fadeOut(function(){
+	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + city + ",&nbsp;" + state + ",&nbsp;" + country).fadeIn(1000);
+      });
+
     },
     error: function(xhr, textStatus, errorThrown){
-      msg = "Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus;
+      
+      $("#location").fadeOut(function(){
+	$(this).html("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus).fadeIn(1000);
+      });
+      
     }
   });
   
-  $("#location").fadeOut(function(){
-      $(this).text(msg).fadeIn(1000);
-  });
 }
 
 /*
