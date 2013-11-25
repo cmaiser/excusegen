@@ -73,7 +73,7 @@ function resolveLocation(lat, lon){
 }
 
 function getMap(lat, lon){
-  var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
+  var positionMap = "<img id=\"map\" src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
 	                lat + "," + lon + 
 	                "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
    

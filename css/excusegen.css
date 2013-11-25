@@ -17,11 +17,11 @@
     #location:hover{
       background-color: #ddddaa;
     }
-    a.gitlink{
-    }
-    img{
+    #map{
       border: 3px solid #bbbbaa;
       border-radius: 5px;
+    }
+    a.gitlink{
     }
     body{
       background-color: #bbbbaa;
