@@ -2,6 +2,8 @@
 $(document).ready(function(){
   
   console.log("Document Ready");
+  
+  ("#location").text("Resolving location...");
 	
   if(navigator.geolocation){
     
@@ -35,6 +37,7 @@ function resolveLocation(lat, lon){
       //convert response string to object
       var responseJSON = jQuery.parseJSON(data);
       var addressComponents = [];
+      var msg = "";
       
       if(typeof(responseJSON.results[0].address_components !== "undefined")){
 	addressComponents = responseJSON.results[0].address_components;
@@ -63,11 +66,15 @@ function resolveLocation(lat, lon){
 	}
       }
       
-      $("#location").append(positionHtml + city + ",&nbsp;" + state + ",&nbsp;" + country);
+      msg = positionHtml + city + ",&nbsp;" + state + ",&nbsp;" + country;
     },
     error: function(xhr, textStatus, errorThrown){
-      $("#location").append("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus);
+      msg = "Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus;
     }
+    
+    $("#location").fadeOut(function(){
+      this.text(msg).fadeIn(1000);
+    });
     
   });
 }
