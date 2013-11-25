@@ -23,7 +23,7 @@ $(document).ready(function(){
 
 function resolveLocation(lat, lon){
   
-  var positionHtml = "Your&nbsp;location:&nbsp;&nbsp;";
+  var msg = "Your&nbsp;location:&nbsp;&nbsp;";
   
   $.ajax({
     type: "POST",
@@ -37,7 +37,6 @@ function resolveLocation(lat, lon){
       //convert response string to object
       var responseJSON = jQuery.parseJSON(data);
       var addressComponents = [];
-      var msg = "";
       
       if(typeof(responseJSON.results[0].address_components !== "undefined")){
 	addressComponents = responseJSON.results[0].address_components;
@@ -66,16 +65,15 @@ function resolveLocation(lat, lon){
 	}
       }
       
-      msg = positionHtml + city + ",&nbsp;" + state + ",&nbsp;" + country;
+      msg += city + ",&nbsp;" + state + ",&nbsp;" + country;
     },
     error: function(xhr, textStatus, errorThrown){
       msg = "Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus;
     }
-    
-    $("#location").fadeOut(function(){
+  });
+  
+  $("#location").fadeOut(function(){
       this.text(msg).fadeIn(1000);
-    });
-    
   });
 }
 
