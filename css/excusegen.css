@@ -25,6 +25,10 @@
     }
     a.gitlink{
       color: #9b9b48;
+      text-decoration:none;
+    }
+    a.gitlink:hover{
+      color: #bbbbaa;
     }
     body{
       background-color: #bbbbaa;
