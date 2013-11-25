@@ -2,11 +2,6 @@
 $(document).ready(function(){
   
   console.log("Document Ready");
-  
-  var bannerDiv = $("#banner");
-  var msg = "<h1>Excuse&nbsp;Generator&nbsp;Coming&nbsp;Soon(ish)</h1>";
-	
-  bannerDiv.html(msg);
 	
   if(navigator.geolocation){
     
