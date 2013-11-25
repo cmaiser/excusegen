@@ -63,7 +63,7 @@ function resolveLocation(lat, lon){
 	}
       }
       
-      ("#location").find("span").fadeOut(function(){
+      $("#location").find("span").fadeOut(function(){
 	$(this).find("span").html("Your&nbsp;location:&nbsp;&nbsp;" + city + ",&nbsp;" + state + ",&nbsp;" + country).fadeIn(1000);
       });
 
