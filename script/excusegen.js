@@ -40,11 +40,36 @@ function resolveLocation(lat, lon){
       lon: lon
     },
     success: function(data){
-      var responseJSON = jQuery.parseJSON(data);
       
-      var city = responseJSON.results[0].address_components[4].long_name;
-      var state = responseJSON.results[0].address_components[5].long_name;
-      var country = responseJSON.results[0].address_components[6].long_name;
+      //convert response string to object
+      var responseJSON = jQuery.parseJSON(data);
+      var addressComponents = [];
+      
+      if(typeof(responseJSON.results[0].address_components !== "undefined"){
+	addressComponents = responseJSON.results[0].address_components;
+      }
+      
+      var city = "";
+      var state = "";
+      var country = "";
+      
+      for(var i=0; addressComponents.length; i++){
+	if(addressComponents[i].types[0] == "administrative_area_level_2" 
+	   && addressComponents[i].types[1] == "political"){
+	  city = addressComponents[i].long_name;
+	  continue;
+	}
+	else if(addressComponents[i].types[0] == "administrative_area_level_1" 
+	   && addressComponents[i].types[1] == "political"){
+	  state = addressComponents[i].long_name;
+	  continue;
+	}
+	else if(addressComponents[i].types[0] == "country" 
+	   && addressComponents[i].types[1] == "political"){
+	  country = addressComponents[i].long_name;
+	  continue;
+	}
+      }
       
       $("#location").append(positionHtml + city + ",&nbsp;" + state + ",&nbsp;" + country);
     },
