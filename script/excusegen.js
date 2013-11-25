@@ -46,6 +46,7 @@ function resolveLocation(lat, lon){
       var addressComponents = [];
       
       if(typeof(responseJSON.results[0].address_components !== "undefined")){
+	console.log("Address components set");
 	addressComponents = responseJSON.results[0].address_components;
       }
       
