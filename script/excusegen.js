@@ -46,15 +46,15 @@ function resolveLocation(lat, lon){
       var addressComponents = [];
       
       if(typeof(responseJSON.results[0].address_components !== "undefined")){
-	console.log("Address components set");
 	addressComponents = responseJSON.results[0].address_components;
+	console.log("addressComponents set: " + addressComponents.length);
       }
       
       var city = "";
       var state = "";
       var country = "";
       
-      for(var i=0; addressComponents.length; i++){
+      for(var i=0; i<addressComponents.length; i++){
 	if(addressComponents[i].types[0] == "administrative_area_level_2" 
 	   && addressComponents[i].types[1] == "political"){
 	  city = addressComponents[i].long_name;
