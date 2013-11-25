@@ -3,7 +3,7 @@ $(document).ready(function(){
   
   console.log("Document Ready");
   
-  $("#location").html("Resolving location...");
+  $("#location").html("<span>Resolving location...</span>");
 	
   if(navigator.geolocation){
     
@@ -63,15 +63,15 @@ function resolveLocation(lat, lon){
 	}
       }
       
-      $("#location").fadeOut(function(){
-	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + city + ",&nbsp;" + state + ",&nbsp;" + country).fadeIn(1000);
+      ("#location").find("span").fadeOut(function(){
+	$(this).find("span").html("Your&nbsp;location:&nbsp;&nbsp;" + city + ",&nbsp;" + state + ",&nbsp;" + country).fadeIn(1000);
       });
 
     },
     error: function(xhr, textStatus, errorThrown){
       
-      $("#location").fadeOut(function(){
-	$(this).html("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus).fadeIn(1000);
+      $("#location").find("span").fadeOut(function(){
+	$(this).find("span").html("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus).fadeIn(1000);
       });
       
     }
