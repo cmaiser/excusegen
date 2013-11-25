@@ -8,7 +8,7 @@
     }
     #location{
       width: 640px;
-      height: 15px;
+      height: 20px;
       background: #eeeeee;
       border: 3px solid #bbbbaa;
       border-radius: 5px;
@@ -16,15 +16,15 @@
       padding: 5px 0px 5px 0px;
       
     }
-    #location:hover{
+    #contentBody{
+      width: 640px;
+      height: 300px;
       background-color: #ddddaa;
-    }
-    #map{
       border: 3px solid #bbbbaa;
       border-radius: 5px;
     }
     a.gitlink{
-      font-color: #9b9b48;
+      color: #9b9b48;
     }
     body{
       background-color: #bbbbaa;
