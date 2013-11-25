@@ -12,7 +12,7 @@ $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(function(position){
       
       resolveLocation(position.coords.latitude, position.coords.longitude);
-      getMap(position.coords.latitude, position.coords.longitude);
+      //getMap(position.coords.latitude, position.coords.longitude);
      
     });
   }
@@ -73,10 +73,11 @@ function resolveLocation(lat, lon){
   });
   
   $("#location").fadeOut(function(){
-      this.text(msg).fadeIn(1000);
+      $(this).text(msg).fadeIn(1000);
   });
 }
 
+/*
 function getMap(lat, lon){
   var positionMap = "<img id=\"map\" src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
 	                lat + "," + lon + 
@@ -84,3 +85,4 @@ function getMap(lat, lon){
    
   $("#locationMap").append(positionMap);
 }
+*/
