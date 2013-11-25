@@ -15,12 +15,8 @@ $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(function(position){
       
       resolveLocation(position.coords.latitude, position.coords.longitude);
-      
-      var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
-	                position.coords.latitude + "," + position.coords.longitude + 
-	                "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
-   
-      $("#locationMap").append(positionMap);    
+      getMap(position.coords.latitude, position.coords.longitude);
+     
     });
   }
   else{
@@ -79,4 +75,12 @@ function resolveLocation(lat, lon){
     }
     
   });
+}
+
+function getMap(lat, lon){
+  var positionMap = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
+	                lat + "," + lon + 
+	                "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
+   
+  $("#locationMap").append(positionMap);
 }
