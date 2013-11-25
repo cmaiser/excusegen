@@ -64,14 +64,14 @@ function resolveLocation(lat, lon){
       }
       
       $("#location").find("span").fadeOut(function(){
-	$(this).find("span").html("Your&nbsp;location:&nbsp;&nbsp;" + city + ",&nbsp;" + state + ",&nbsp;" + country).fadeIn(1000);
+	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + city + ",&nbsp;" + state + ",&nbsp;" + country).fadeIn(1000);
       });
 
     },
     error: function(xhr, textStatus, errorThrown){
       
       $("#location").find("span").fadeOut(function(){
-	$(this).find("span").html("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus).fadeIn(1000);
+	$(this).html("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus).fadeIn(1000);
       });
       
     }
