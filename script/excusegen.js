@@ -1,4 +1,6 @@
 
+var locationString;
+
 $(document).ready(function(){
   
   console.log("Document Ready");
@@ -63,9 +65,14 @@ function resolveLocation(lat, lon){
 	}
       }
       
+      //only global until I figure out jquery scope (c'mon, it's just javascript!)
+      locationString = city + ",&nbsp;" + state + ",&nbsp;" + country;
+      
       $("#location").find("span").fadeOut(function(){
-	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + city + ",&nbsp;" + state + ",&nbsp;" + country).fadeIn(1000);
+	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000);
       });
+      
+      getExcuses(locationString);
 
     },
     error: function(xhr, textStatus, errorThrown){
@@ -80,11 +87,21 @@ function resolveLocation(lat, lon){
 }
 
 /*
-function getMap(lat, lon){
-  var positionMap = "<img id=\"map\" src=\"http://maps.googleapis.com/maps/api/staticmap?center=" +
-	                lat + "," + lon + 
-	                "&zoom=13 &size=640x400&sensor=false&visual_refresh=false\">";
-   
-  $("#locationMap").append(positionMap);
+function onGetExcusesClicked(){
+  $.ajax({
+    type: "POST",
+    url: "http://54.204.21.196/excusegenservice/getExcusses/",
+    data: {
+      datetime: datetime,
+      location: location
+    }
+  });
 }
 */
+
+
+
+
+
+
+
