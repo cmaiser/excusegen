@@ -36,9 +36,7 @@ function resolveLocation(lat, lon){
     success: function(data){
       
       //convert response string to object
-      alert(data);
       var responseJSON = jQuery.parseJSON(data);
-      alert(responseJSON);
       
       var city = responseJSON["city"];
       var state = responseJSON["state"];;
