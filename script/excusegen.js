@@ -36,35 +36,13 @@ function resolveLocation(lat, lon){
     success: function(data){
       
       //convert response string to object
+      alert(data);
       var responseJSON = jQuery.parseJSON(data);
-      
-      
-//       if(typeof(responseJSON.results[0].address_components !== "undefined")){
-// 	addressComponents = responseJSON.results[0].address_components;
-// 	console.log("addressComponents set: " + addressComponents.length);
-//       }
+      alert(responseJSON);
       
       var city = responseJSON["city"];
       var state = responseJSON["state"];;
       var country = responseJSON["country"];;
-      
-//       for(var i=0; i<addressComponents.length; i++){
-// 	if(addressComponents[i].types[0] == "administrative_area_level_2" 
-// 	   && addressComponents[i].types[1] == "political"){
-// 	  city = addressComponents[i].long_name;
-// 	  continue;
-// 	}
-// 	else if(addressComponents[i].types[0] == "administrative_area_level_1" 
-// 	   && addressComponents[i].types[1] == "political"){
-// 	  state = addressComponents[i].long_name;
-// 	  continue;
-// 	}
-// 	else if(addressComponents[i].types[0] == "country" 
-// 	   && addressComponents[i].types[1] == "political"){
-// 	  country = addressComponents[i].long_name;
-// 	  continue;
-// 	}
-//       }
       
       //only global until I figure out jquery scope (c'mon, it's just javascript!)
       locationString = city + ",&nbsp;" + state + ",&nbsp;" + country;
@@ -73,7 +51,7 @@ function resolveLocation(lat, lon){
 	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000);
       });
       
-      getExcuses(locationString);
+      //getExcuses(locationString);
 
     },
     error: function(xhr, textStatus, errorThrown){
