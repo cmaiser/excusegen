@@ -28,6 +28,7 @@ function resolveLocation(lat, lon){
   $.ajax({
     type: "POST",
     url: "http://54.204.21.196/excusegenservice/locationResolver/",
+    //url: "http://127.0.0.1:8000/locationResolver/",
     data: {
       lat: lat,
       lon: lon
@@ -36,34 +37,34 @@ function resolveLocation(lat, lon){
       
       //convert response string to object
       var responseJSON = jQuery.parseJSON(data);
-      var addressComponents = [];
       
-      if(typeof(responseJSON.results[0].address_components !== "undefined")){
-	addressComponents = responseJSON.results[0].address_components;
-	console.log("addressComponents set: " + addressComponents.length);
-      }
       
-      var city = "";
-      var state = "";
-      var country = "";
+//       if(typeof(responseJSON.results[0].address_components !== "undefined")){
+// 	addressComponents = responseJSON.results[0].address_components;
+// 	console.log("addressComponents set: " + addressComponents.length);
+//       }
       
-      for(var i=0; i<addressComponents.length; i++){
-	if(addressComponents[i].types[0] == "administrative_area_level_2" 
-	   && addressComponents[i].types[1] == "political"){
-	  city = addressComponents[i].long_name;
-	  continue;
-	}
-	else if(addressComponents[i].types[0] == "administrative_area_level_1" 
-	   && addressComponents[i].types[1] == "political"){
-	  state = addressComponents[i].long_name;
-	  continue;
-	}
-	else if(addressComponents[i].types[0] == "country" 
-	   && addressComponents[i].types[1] == "political"){
-	  country = addressComponents[i].long_name;
-	  continue;
-	}
-      }
+      var city = responseJSON["city"];
+      var state = responseJSON["state"];;
+      var country = responseJSON["country"];;
+      
+//       for(var i=0; i<addressComponents.length; i++){
+// 	if(addressComponents[i].types[0] == "administrative_area_level_2" 
+// 	   && addressComponents[i].types[1] == "political"){
+// 	  city = addressComponents[i].long_name;
+// 	  continue;
+// 	}
+// 	else if(addressComponents[i].types[0] == "administrative_area_level_1" 
+// 	   && addressComponents[i].types[1] == "political"){
+// 	  state = addressComponents[i].long_name;
+// 	  continue;
+// 	}
+// 	else if(addressComponents[i].types[0] == "country" 
+// 	   && addressComponents[i].types[1] == "political"){
+// 	  country = addressComponents[i].long_name;
+// 	  continue;
+// 	}
+//       }
       
       //only global until I figure out jquery scope (c'mon, it's just javascript!)
       locationString = city + ",&nbsp;" + state + ",&nbsp;" + country;
