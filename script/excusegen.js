@@ -67,7 +67,7 @@ function getExcuses(lat, lon){
   
   $.ajax({
     type: "POST",
-    url: "http://54.204.21.196/excusegenservice/getExcuses/",
+    url: "http://54.204.21.196/excusegenservice/generateExcuses/",
     data: {
       lat: lat,
       lon: lon
