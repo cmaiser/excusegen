@@ -23,6 +23,22 @@
       border: 3px solid #bbbbaa;
       border-radius: 5px;
     }
+    
+    #loading{
+      width: 300px;
+      height: 100px;
+
+
+      margin: 90px auto auto auto;
+
+      
+      
+      
+      text-align:center;
+
+
+    }
+    
     a.gitlink{
       color: #9b9b48;
       text-decoration:none;

@@ -6,6 +6,7 @@ $(document).ready(function(){
   console.log("Document Ready");
   
   $("#location").html("<span>Resolving location...</span>");
+  $("#loading").hide()
 	
   if(navigator.geolocation){
     
@@ -49,7 +50,7 @@ function resolveLocation(lat, lon){
 	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000);
       });
       
-      //getExcuses(locationString);
+      getExcuses();
 
     },
     error: function(xhr, textStatus, errorThrown){
@@ -63,18 +64,20 @@ function resolveLocation(lat, lon){
   
 }
 
-/*
-function onGetExcusesClicked(){
-  $.ajax({
-    type: "POST",
-    url: "http://54.204.21.196/excusegenservice/getExcusses/",
-    data: {
-      datetime: datetime,
-      location: location
-    }
-  });
+
+function getExcuses(){
+  $("#loading").fadeIn(1000);
+  
+//   $.ajax({
+//     type: "POST",
+//     url: "http://54.204.21.196/excusegenservice/getExcusses/",
+//     data: {
+//       datetime: datetime,
+//       location: location
+//     }
+//   });
 }
-*/
+
 
 
 
