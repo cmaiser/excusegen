@@ -47,11 +47,8 @@ function resolveLocation(lat, lon){
       locationString = city + ",&nbsp;" + state + ",&nbsp;" + country;
       
       $("#location").find("span").fadeOut(function(){
-	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000);
+	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000,  getExcuses());
       });
-      
-      getExcuses();
-
     },
     error: function(xhr, textStatus, errorThrown){
       
