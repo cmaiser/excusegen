@@ -7,6 +7,7 @@ $(document).ready(function(){
   
   $("#location").html("<span>Resolving location...</span>");
   $("#loading").hide()
+  $("#returnMessage").hide()
 	
   if(navigator.geolocation){
     
@@ -74,16 +75,11 @@ function getExcuses(lat, lon){
     },
     success: function(data){
       
+      $("#loading").fadeOut(1000);
+      $("#returnMessage").text(data).fadeIn(1000);
 //       //convert response string to object
 //       var responseJSON = jQuery.parseJSON(data);
-//       
-//       var city = responseJSON["city"];
-//       var state = responseJSON["state"];;
-//       var country = responseJSON["country"];;
-//       
-//       //only global until I figure out jquery scope (c'mon, it's just javascript!)
-//       locationString = city + ",&nbsp;" + state + ",&nbsp;" + country;
-//       
+
 //       $("#location").find("span").fadeOut(function(){
 // 	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000,  getExcuses(lat, lon));
 //       });
