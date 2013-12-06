@@ -75,7 +75,7 @@ function getExcuses(lat, lon){
     },
     success: function(data){
       
-      $("#loading").fadeOut(1000);
+      $("#loading").hide();
       $("#returnMessage").html(data).fadeIn(1000);
 //       //convert response string to object
 //       var responseJSON = jQuery.parseJSON(data);
