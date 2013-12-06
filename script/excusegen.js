@@ -5,7 +5,7 @@ $(document).ready(function(){
   
   console.log("Document Ready");
   
-  $("#location").html("<span>Resolving location...</span>");
+  $("#location").html("<span><img src=\"img/globe.gif\" style=\"vertical-align:middle\">&nbsp;&nbsp;Resolving location...</span>");
   $("#loading").hide()
   $("#returnMessage").hide()
 	
