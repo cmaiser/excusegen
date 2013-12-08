@@ -37,7 +37,7 @@
     }
     
     #tweetContent{
-      height: 620px;
+      height: 280px;
       overflow-y: scroll;
       overflow-x: hidden;
       
