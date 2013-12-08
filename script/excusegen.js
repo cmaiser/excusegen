@@ -119,10 +119,19 @@ function onShowTweetsClicked(){
     
     var localDate = new Date(tweetData[i].date);
     
-    tweets += "<div class=\"tweet\">" +
+    var tweetClass = "tweet";
+    
+    if(i%2 == 0){
+      tweetClass += "1"
+    }
+    else{
+      tweetClass += "2"
+    }
+    
+    tweets += "<div class=\"" + tweetClass + "\">" +
 		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + localDate + "</span><br />" + 
-		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span>" +
-                    "</div><br />"
+		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span><br />"" +
+                    "</div>
   }
 
   

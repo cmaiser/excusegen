@@ -28,10 +28,19 @@
     
     #tweetContainer{
       text-align: left;
+      font-size: 75%;
     }
     
     .tweetHead{
       font-weight: bold;
+    }
+    
+    .tweet1{
+      background-color: #ddddaa;
+    }
+    
+    .tweet2{
+      background-color: #eeeeee;
     }
     
     .centerViewPort{
