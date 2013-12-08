@@ -27,14 +27,20 @@
     #tweetContainer{
       text-align: left;
       font-size: 75%;
-      overflow-y: scroll;
-      overflow-x: hidden;
       width: 640px;
       height: 300px;
     }
     
-    .tweetHead{
+    #tweetHead{
+      height: 20px;
       font-weight: bold;
+    }
+    
+    #tweetContent{
+      height: 620px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      
     }
     
     .tweet1{
