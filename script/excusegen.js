@@ -122,16 +122,16 @@ function onShowTweetsClicked(){
     var tweetClass = "tweet";
     
     if(i%2 == 0){
-      tweetClass += "1"
+      tweetClass += "1";
     }
     else{
-      tweetClass += "2"
+      tweetClass += "2";
     }
     
     tweets += "<div class=\"" + tweetClass + "\">" +
 		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + localDate + "</span><br />" + 
-		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span><br />"" +
-                    "</div>
+		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span><br />" +
+                    "</div>"
   }
 
   
