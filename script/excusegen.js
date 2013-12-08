@@ -116,8 +116,11 @@ function onShowTweetsClicked(){
   var tweets = "";
   
   for(var i=0; i<tweetData.length; i++){
+    
+    var localDate = new Date(tweetData[i].date);
+    
     tweets += "<div class=\"tweet\">" +
-		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + tweetData[i].date + "</span><br />" + 
+		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + localDate + "</span><br />" + 
 		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span>" +
                     "</div><br />"
   }
