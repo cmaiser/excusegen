@@ -9,6 +9,7 @@ $(document).ready(function(){
   $("#location").html("<span><img src=\"img/globe.gif\" style=\"vertical-align:middle\">&nbsp;&nbsp;Resolving location...</span>");
   $("#loading").hide()
   $("#returnMessage").hide()
+  $("#tweetContainer").hide();
 	
   if(navigator.geolocation){
     
@@ -112,19 +113,19 @@ function getExcuses(lat, lon){
 
 function onShowTweetsClicked(){
 
-  var tweetContainer = "<div id=\"tweetContainer\">";
+  var tweets = "";
   
   for(var i; i<tweetData.length; i++){
-    tweetContainer += "<div class=\"tweet\">" +
+    tweets += "<div class=\"tweet\">" +
 		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + tweetData[i].user + "</span<br />" + 
 		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span>" +
                     "</div>"
   }
-  
-  tweetContainer += "</div>";
+
   
   $("#returnMessage").hide();
-  $("#contentBody").append(tweetContainer);
+  $("#tweetContainer").html(tweets);
+  $("#tweetContainer").show();
 
 }
 
