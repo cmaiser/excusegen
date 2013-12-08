@@ -126,6 +126,7 @@ function onShowTweetsClicked(){
   $("#returnMessage").hide();
   $("#tweetContainer").html(tweets);
   $("#tweetContainer").show();
+  alert(tweets);
 
 }
 
