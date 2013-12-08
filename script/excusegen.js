@@ -137,7 +137,7 @@ function onShowTweetsClicked(){
   
   $("#returnMessage").hide();
   $("#tweetContent").html(tweets);
-  $("#tweetContainer").show("slide", {direction: "down", mode: "show"});
+  $("#tweetContainer").show("slide", {direction: "up"}, 1000);
 
 }
 
