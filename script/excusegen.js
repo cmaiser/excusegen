@@ -1,5 +1,6 @@
 
-var locationString;
+var locationString = "";
+var tweetData = [];
 
 $(document).ready(function(){
   
@@ -78,9 +79,21 @@ function getExcuses(lat, lon){
             
        //convert response string to object
 	var responseJSON = jQuery.parseJSON(data);
+	tweetData = responseJSON["tweets"];
       
 	$("#loading").hide();
 	$("#returnMessage").html(responseJSON["returnMessage"]).fadeIn(1000);
+	
+	if(tweetData.length > 0){
+	  $("#returnMessage").append($("<input type=\"button\" id=\"showTweets\" value=\"View Tweets\"/>");
+	  
+	  $("showTweets").click(function(){
+	    onShowTweetsClicked();
+	  });
+	  
+	} 
+	
+	
 
 
 //       $("#location").find("span").fadeOut(function(){
@@ -95,6 +108,19 @@ function getExcuses(lat, lon){
       
     }
   });
+}
+
+function onShowTweetsClicked(){
+  tweetDivList = ""
+  
+  alert("Click test worked!");
+  
+  for(var i; i<tweetData.length; i++){
+    tweetDivList += "<div class=\"tweet\">" +
+		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + tweetData[i].user + "</span<br />" + 
+		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span>" +
+                    "</div>"
+  }  
 }
 
 
