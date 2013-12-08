@@ -75,10 +75,13 @@ function getExcuses(lat, lon){
     },
     success: function(data){
       
-      $("#loading").hide();
-      $("#returnMessage").html(data).fadeIn(1000);
-//       //convert response string to object
-//       var responseJSON = jQuery.parseJSON(data);
+            
+       //convert response string to object
+	var responseJSON = jQuery.parseJSON(data);
+      
+	$("#loading").hide();
+	$("#returnMessage").html(responseJSON["returnMessage"]).fadeIn(1000);
+
 
 //       $("#location").find("span").fadeOut(function(){
 // 	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000,  getExcuses(lat, lon));
