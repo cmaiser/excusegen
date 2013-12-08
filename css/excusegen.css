@@ -33,9 +33,12 @@
     
     #tweetControlPanel{
       height: 27px;
-      font-weight: bold;
       background-color: #bbbbaa;
       text-align: center;
+    }
+    
+    #tweetHead{
+      font-weight: bold;
     }
     
     #tweetContent{
