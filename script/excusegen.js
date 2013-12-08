@@ -117,7 +117,7 @@ function onShowTweetsClicked(){
   
   for(var i=0; i<tweetData.length; i++){
     tweets += "<div class=\"tweet\">" +
-		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + tweetData[i].user + "</span<br />" + 
+		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + tweetData[i].date + "</span<br />" + 
 		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span>" +
                     "</div>"
   }
