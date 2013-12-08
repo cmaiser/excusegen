@@ -22,12 +22,16 @@
       background-color: #ddddaa;
       border: 3px solid #bbbbaa;
       border-radius: 5px;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
     
     #tweetContainer{
       text-align: left;
-      overflow-y: scroll;
-      overflow-x: hidden;
+    }
+    
+    .tweetHead{
+      font-weight: bold;
     }
     
     .centerViewPort{
