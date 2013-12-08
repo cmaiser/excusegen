@@ -137,16 +137,16 @@ function onShowTweetsClicked(){
   
   $("#returnMessage").hide();
   $("#tweetContent").html(tweets);
-  $("#tweetContainer").show("slide", {direction: "down"}, 500);
+  $("#tweetContainer").show("slide", {direction: "up"}, 500);
   
   $("#hideTweets").click(function(){
-    onShowHideClicked();
+    onHideTweetsClicked();
   });
 
 }
 
 function onHideTweetsClicked(){
-  $("#tweetContainer").hide("slide", {direction: "up"}, 500);
+  $("#tweetContainer").hide("slide", {direction: "down"}, 500);
   $("#returnMessage").show();
 }
 
