@@ -52,11 +52,13 @@
     .extraContent1{
       background-color: #ddddaa;
       padding: 3px;
+      height: 35px;
     }
     
     .extraContent2{
       background-color: #eeeeee;
       padding: 3px;
+      height: 35px;
     }
     
     .centerViewPort{
