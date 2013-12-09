@@ -80,7 +80,8 @@ function getExcuses(lat, lon){
             
        //convert response string to object
 	var responseJSON = jQuery.parseJSON(data);
-	tweetData = responseJSON["tweets"];
+	tweetData = responseJSON.tweetResults.tweets;
+	trafficData = responseJSON.trafficResults;
       
 	$("#loading").hide();
 	$("#returnMessage").html(responseJSON["returnMessage"]).fadeIn(1000);
