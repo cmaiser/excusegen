@@ -10,7 +10,7 @@ $(document).ready(function(){
   $("#location").html("<span><img src=\"img/globe.gif\" style=\"vertical-align:middle\">&nbsp;&nbsp;Resolving location...</span>");
   $("#loading").hide()
   $("#returnMessage").hide()
-  $("#tweetContainer").hide();
+  $("#extraContentContainer").hide();
 	
   if(navigator.geolocation){
     
@@ -156,7 +156,7 @@ function onShowTweetsClicked(){
 
 function onShowTrafficClicked(){
 
-  var traffic = "";
+  var trafficIncidents = "";
   
   for(var i=0; i<trafficData.length; i++){
     
@@ -185,7 +185,7 @@ function onShowTrafficClicked(){
   
 }
 
-function onHideTweetsClicked(){
+function onHideContentClicked(){
   $("#extraContentContainer").hide("slide", {direction: "up"}, 500, function(){$("#returnMessage").show();});
 }
 
