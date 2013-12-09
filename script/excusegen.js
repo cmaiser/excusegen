@@ -85,7 +85,7 @@ function getExcuses(lat, lon){
 	trafficData = responseJSON.trafficResults.incidents;
       
 	$("#loading").hide();
-	$("#returnMessage").html(responseJSON["returnMessage"]).fadeIn(1000);
+	$("#returnMessage").html("");
 	
 	if(tweetData.length > 0){
 	  $("#returnMessage").append("<input type=\"button\" id=\"showTweets\" class=\"excuseButton\" value=\"Tweets\"/><br />");
@@ -97,18 +97,23 @@ function getExcuses(lat, lon){
 	} 
 	
 	if(trafficData.length > 0){
-	  $("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" class=\"excuseButton\" value=\"Traffic Incidents\"/>");
+	  $("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" class=\"excuseButton\" value=\"Traffic\"/><br />");
 	  
 	  $("#showTraffic").click(function(){
 	    onShowTrafficClicked();
 	  });
 	  
 	}
+	
+	$("#returnMessage").append("<br /><input type=\"button\" id=\"refreshData\" class=\"excuseButton\" value=\"Refresh Data\"/>");
+	
+	$("#refreshData").click(function(){
 
+	$("#returnMessage").hide()
+	$("#extraContentContainer").hide();
+	  getExcuses(lat, lon);
+	});
 
-//       $("#location").find("span").fadeOut(function(){
-// 	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000,  getExcuses(lat, lon));
-//       });
     },
     error: function(xhr, textStatus, errorThrown){
       
