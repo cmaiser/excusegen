@@ -1,7 +1,7 @@
 
 var locationString = "";
 var tweetData = [];
-car trafficData = [];
+var trafficData = [];
 
 $(document).ready(function(){
   
