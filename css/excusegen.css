@@ -51,13 +51,13 @@
     .extraContent1{
       background-color: #ddddaa;
       padding: 3px;
-      height: 40px;
+      height: 43px;
     }
     
     .extraContent2{
       background-color: #eeeeee;
       padding: 3px;
-      height: 40px;
+      height: 43px;
     }
     
     .centerViewPort{
@@ -69,6 +69,7 @@
     
     .trafficImage{
       float:left;
+      padding: 5px;
     }
     
     a.gitlink{
