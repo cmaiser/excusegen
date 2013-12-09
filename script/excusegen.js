@@ -88,7 +88,7 @@ function getExcuses(lat, lon){
 	$("#returnMessage").html(responseJSON["returnMessage"]).fadeIn(1000);
 	
 	if(tweetData.length > 0){
-	  $("#returnMessage").append("<input type=\"button\" id=\"showTweets\" value=\"View Tweets\"/>");
+	  $("#returnMessage").append("<input type=\"button\" id=\"showTweets\" value=\"Tweets\"/>");
 	  
 	  $("#showTweets").click(function(){
 	    onShowTweetsClicked();
