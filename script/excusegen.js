@@ -105,7 +105,7 @@ function getExcuses(lat, lon){
 	  
 	}
 	
-	$("#returnMessage").append("<br /><input type=\"button\" id=\"refreshData\" class=\"excuseButton\" value=\"Refresh Data\"/><br />");
+	$("#returnMessage").append("<br /><input type=\"button\" id=\"refreshData\" class=\"excuseButton\" value=\"Refresh Data\"/><br /><br />");
 	
 	$("#refreshData").click(function(){
 
