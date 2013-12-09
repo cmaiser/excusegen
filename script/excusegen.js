@@ -88,7 +88,7 @@ function getExcuses(lat, lon){
 	$("#returnMessage").html(responseJSON["returnMessage"]).fadeIn(1000);
 	
 	if(tweetData.length > 0){
-	  $("#returnMessage").append("<input type=\"button\" id=\"showTweets\" value=\"Tweets\"/>");
+	  $("#returnMessage").append("<input type=\"button\" id=\"showTweets\" class=\"hideContent\" value=\"Tweets\"/>");
 	  
 	  $("#showTweets").click(function(){
 	    onShowTweetsClicked();
@@ -97,7 +97,7 @@ function getExcuses(lat, lon){
 	} 
 	
 	if(trafficData.length > 0){
-	  $("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" value=\"Traffic Incidents\"/>");
+	  $("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" class=\"hideContent\" value=\"Traffic Incidents\"/>");
 	  
 	  $("#showTraffic").click(function(){
 	    onShowTrafficClicked();
