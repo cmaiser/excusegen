@@ -46,21 +46,18 @@
         
     .extraContentHead{
       font-weight: bold;
-      padding: 3px;
     }
     
     .extraContent1{
       background-color: #ddddaa;
       padding: 3px;
+      height: 40px;
     }
     
     .extraContent2{
       background-color: #eeeeee;
       padding: 3px;
-    }
-    
-    .extraContentBody{
-      height: 35px;
+      height: 40px;
     }
     
     .centerViewPort{
