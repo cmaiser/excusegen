@@ -31,28 +31,28 @@
       height: 300px;
     }
     
-    #tweetControlPanel{
+    #extraContentControlPanel{
       height: 27px;
       background-color: #bbbbaa;
       text-align: center;
     }
 
-    #tweetContent{
+    #extraContent{
       height: 273px;
       overflow-y: scroll;
       overflow-x: hidden;
       
     }
         
-    .tweetHead{
+    .extraContentHead{
       font-weight: bold;
     }
     
-    .tweet1{
+    .extraContent1{
       background-color: #ddddaa;
     }
     
-    .tweet2{
+    .extraContent2{
       background-color: #eeeeee;
     }
     

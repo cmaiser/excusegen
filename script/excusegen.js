@@ -1,6 +1,7 @@
 
 var locationString = "";
 var tweetData = [];
+car trafficData = [];
 
 $(document).ready(function(){
   
@@ -81,7 +82,7 @@ function getExcuses(lat, lon){
        //convert response string to object
 	var responseJSON = jQuery.parseJSON(data);
 	tweetData = responseJSON.tweetResults.tweets;
-	trafficData = responseJSON.trafficResults;
+	trafficData = responseJSON.trafficResults.incidents;
       
 	$("#loading").hide();
 	$("#returnMessage").html(responseJSON["returnMessage"]).fadeIn(1000);
@@ -95,7 +96,14 @@ function getExcuses(lat, lon){
 	  
 	} 
 	
-	
+	if(trafficData.length > 0){
+	  $("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" value=\"Traffic Incidents\"/>");
+	  
+	  $("#showTraffic").click(function(){
+	    onShowTrafficClicked();
+	  });
+	  
+	}
 
 
 //       $("#location").find("span").fadeOut(function(){
@@ -120,7 +128,7 @@ function onShowTweetsClicked(){
     
     var localDate = new Date(tweetData[i].date);
     
-    var tweetClass = "tweet";
+    var tweetClass = "extraContent";
     
     if(i%2 == 0){
       tweetClass += "1";
@@ -130,24 +138,55 @@ function onShowTweetsClicked(){
     }
     
     tweets += "<div class=\"" + tweetClass + "\">" +
-		      "<span class=\"tweetHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + localDate + "</span><br />" + 
-		      "<span class=\"tweetBody\">" + tweetData[i].text + "</span><br />" +
+		      "<span class=\"extraContentHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + localDate + "</span><br />" + 
+		      "<span class=\"extraContentBody\">" + tweetData[i].text + "</span><br />" +
                     "</div>"
   }
 
   
   $("#returnMessage").hide();
-  $("#tweetContent").html(tweets);
-  $("#tweetContainer").show("slide", {direction: "up"}, 500);
+  $("#extraContent").html(tweets);
+  $("#extraContentContainer").show("slide", {direction: "up"}, 500);
   
-  $("#hideTweets").click(function(){
-    onHideTweetsClicked();
+  $("#hideContent").click(function(){
+    onHideContentClicked();
   });
 
 }
 
+function onShowTrafficClicked(){
+
+  var traffic = "";
+  
+  for(var i=0; i<trafficData.length; i++){
+    
+    var trafficClass = "extraContent";
+
+    if(i%2 == 0){
+      trafficClass += "1";
+    }
+    else{
+      trafficClass += "2";
+    }
+    
+    trafficIncidents += "<div class=\"" + trafficClass + "\">" + 
+		      "<span class=\"extraContentBody\">" + trafficData[i].fullDesc + "</span><br />" +
+                    "</div>"
+  }
+
+  
+  $("#returnMessage").hide();
+  $("#extraContent").html(trafficIncidents);
+  $("#extraContentContainer").show("slide", {direction: "up"}, 500);
+  
+  $("#hideContent").click(function(){
+    onHideContentClicked();
+  });
+  
+}
+
 function onHideTweetsClicked(){
-  $("#tweetContainer").hide("slide", {direction: "up"}, 500, function(){$("#returnMessage").show();});
+  $("#extraContentContainer").hide("slide", {direction: "up"}, 500, function(){$("#returnMessage").show();});
 }
 
 
