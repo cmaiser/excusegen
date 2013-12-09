@@ -105,14 +105,16 @@ function getExcuses(lat, lon){
 	  
 	}
 	
-	$("#returnMessage").append("<br /><input type=\"button\" id=\"refreshData\" class=\"excuseButton\" value=\"Refresh Data\"/>");
+	$("#returnMessage").append("<br /><input type=\"button\" id=\"refreshData\" class=\"excuseButton\" value=\"Refresh Data\"/><br />");
 	
 	$("#refreshData").click(function(){
 
-	$("#returnMessage").hide()
-	$("#extraContentContainer").hide();
+	  $("#returnMessage").hide()
+	  $("#extraContentContainer").hide();
 	  getExcuses(lat, lon);
 	});
+	
+	$("#returnMessage").append(responseJSON.elapsedTime)
     },
     error: function(xhr, textStatus, errorThrown){
       
