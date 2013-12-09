@@ -169,7 +169,8 @@ function onShowTrafficClicked(){
       trafficClass += "2";
     }
     
-    trafficIncidents += "<div class=\"" + trafficClass + "\">" + 
+    trafficIncidents += "<div class=\"" + trafficClass + "\">" +
+                      "<img src=\"" + trafficData[i].iconURL + "\" class=\"trafficImage\" />" +
 		      "<span class=\"extraContentBody\">" + trafficData[i].fullDesc + "</span><br />" +
                     "</div>"
   }
@@ -182,7 +183,6 @@ function onShowTrafficClicked(){
   $("#hideContent").click(function(){
     onHideContentClicked();
   });
-  
 }
 
 function onHideContentClicked(){
