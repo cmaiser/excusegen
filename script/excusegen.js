@@ -2,6 +2,7 @@
 var locationString = "";
 var tweetData = [];
 var trafficData = [];
+var weatherData = [];
 
 $(document).ready(function(){
   
@@ -85,28 +86,33 @@ function getExcuses(lat, lon, city, state){
 	var responseJSON = jQuery.parseJSON(data);
 	tweetData = responseJSON.tweetResults.tweets;
 	trafficData = responseJSON.trafficResults.incidents;
+	weatherData = responseJSON.weatherAlerts.alerts;
       
 	$("#loading").hide();
 	$("#returnMessage").html("").fadeIn(1000);
 	
-	if(tweetData.length > 0){
-	  $("#returnMessage").append("<input type=\"button\" id=\"showTweets\" class=\"excuseButton\" value=\"Tweets\"/><br />");
+	//Tweet button
+	$("#returnMessage").append("<input type=\"button\" id=\"showTweets\" class=\"excuseButton\" value=\"Tweets&nbsp;(" + tweetData.length + ")\"/><br />");
 	  
-	  $("#showTweets").click(function(){
-	    onShowTweetsClicked();
-	  });
-	  
-	} 
+	$("#showTweets").click(function(){
+	  onShowTweetsClicked();
+	});
 	
-	if(trafficData.length > 0){
-	  $("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" class=\"excuseButton\" value=\"Traffic\"/><br />");
+	//Traffic button
+	$("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" class=\"excuseButton\" value=\"Traffic&nbsp;(" + trafficData.length + ")\"/><br />");
 	  
-	  $("#showTraffic").click(function(){
-	    onShowTrafficClicked();
-	  });
-	  
-	}
+	$("#showTraffic").click(function(){
+	  onShowTrafficClicked();
+	});
 	
+	//Weather button
+	$("#returnMessage").append("<br /><input type=\"button\" id=\"showWeather\" class=\"excuseButton\" value=\"Weatherc&nbsp;(" + weatherData.length + ")\"/><br />");
+	  
+	$("#showWeather").click(function(){
+	  onShowWeatherClicked();
+	});
+	
+	//Refresh button
 	$("#returnMessage").append("<br /><input type=\"button\" id=\"refreshData\" class=\"excuseButton\" value=\"Refresh Data\"/><br /><br />");
 	
 	$("#refreshData").click(function(){
@@ -186,6 +192,42 @@ function onShowTrafficClicked(){
   
   $("#returnMessage").hide();
   $("#extraContent").html(trafficIncidents);
+  $("#extraContentContainer").show("slide", {direction: "up"}, 500);
+  
+  $("#hideContent").click(function(){
+    onHideContentClicked();
+  });
+}
+
+function onShowWeatherClicked(){
+
+  var weatherAlerts = "";
+  
+  for(var i=0; i<weatherData.length; i++){
+    
+    var weatherClass = "extraContent";
+
+    if(i%2 == 0){
+      weatherClass += "1";
+    }
+    else{
+      weatherClass += "2";
+    }
+    
+    weatherAlerts += "<div class=\"" + weatherClass + "\">" +
+		      "<span class=\"extraContentBody\">" + weatherData[i].message + "</span><br />" +
+                    "</div>"
+  }
+  
+  if(weatherAlerts == ""){
+    "<div class=\"" + extraContent1 + "\">" +
+	"<span class=\"extraContentBody\">There are no weather alerts for your area!  Lucky you!</span><br />" +
+        "</div>
+  }
+
+  
+  $("#returnMessage").hide();
+  $("#extraContent").html(weatherAlerts);
   $("#extraContentContainer").show("slide", {direction: "up"}, 500);
   
   $("#hideContent").click(function(){
