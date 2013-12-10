@@ -51,7 +51,7 @@ function resolveLocation(lat, lon){
       locationString = city + ",&nbsp;" + state + ",&nbsp;" + country;
       
       $("#location").find("span").fadeOut(function(){
-	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000,  getExcuses(lat, lon));
+	$(this).html("Your&nbsp;location:&nbsp;&nbsp;" + locationString).fadeIn(1000,  getExcuses(lat, lon, city, state));
       });
     },
     error: function(xhr, textStatus, errorThrown){
@@ -74,7 +74,9 @@ function getExcuses(lat, lon){
     url: "http://54.204.21.196/excusegenservice/generateExcuses/",
     data: {
       lat: lat,
-      lon: lon
+      lon: lon,
+      cityName: city,
+      stateShortName: state
     },
     success: function(data){
       
