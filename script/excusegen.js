@@ -66,7 +66,7 @@ function resolveLocation(lat, lon){
 }
 
 
-function getExcuses(lat, lon){
+function getExcuses(lat, lon, city, state){
   $("#loading").fadeIn(1000);
   
   $.ajax({
