@@ -217,7 +217,7 @@ function onShowWeatherClicked(){
   }
   
   if(weatherAlerts == ""){
-    weatherAlerts = "<div class=\"" + extraContent2 + "\">" +
+    weatherAlerts = "<div class=\"extraContent2\">" +
 		    "<span class=\"extraContentBody\">There are no weather alerts for your area!  Lucky you!</span><br />" +
 		    "</div>"
   }
