@@ -70,6 +70,11 @@ function resolveLocation(lat, lon){
 function getExcuses(lat, lon, city, state){
   $("#loading").fadeIn(1000);
   
+  var d = new Date();
+  var day = d.getDate();
+  var month = d.getMonth() + 1;
+  var year = d.getYear() + 1900;
+  
   $.ajax({
     type: "POST",
     url: "http://54.204.21.196/excusegenservice/generateExcuses/",
@@ -77,7 +82,10 @@ function getExcuses(lat, lon, city, state){
       lat: lat,
       lon: lon,
       cityName: city,
-      stateShortName: state
+      stateShortName: state,
+      day: day,
+      month: month,
+      year: year
     },
     success: function(data){
       
