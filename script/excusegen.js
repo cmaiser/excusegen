@@ -3,6 +3,7 @@ var locationString = "";
 var tweetData = [];
 var trafficData = [];
 var weatherData = [];
+var holidayData = [];
 
 $(document).ready(function(){
   
@@ -95,6 +96,7 @@ function getExcuses(lat, lon, city, state){
 	tweetData = responseJSON.tweetResults.tweets;
 	trafficData = responseJSON.trafficResults.incidents;
 	weatherData = responseJSON.weatherAlerts.alerts;
+	holidayData = responseJSON.holidays.holidays
       
 	$("#loading").hide();
 	$("#returnMessage").html("").fadeIn(1000);
@@ -118,6 +120,13 @@ function getExcuses(lat, lon, city, state){
 	  
 	$("#showWeather").click(function(){
 	  onShowWeatherClicked();
+	});
+	
+	//Holiday button
+	$("#returnMessage").append("<br /><input type=\"button\" id=\"showHolidays\" class=\"excuseButton\" value=\"Holidays&nbsp;(" + holidayData.length + ")\"/><br />");
+	  
+	$("#showHolidays").click(function(){
+	  onShowHolidaysClicked();
 	});
 	
 	//Refresh button
@@ -233,6 +242,42 @@ function onShowWeatherClicked(){
   
   $("#returnMessage").hide();
   $("#extraContent").html(weatherAlerts);
+  $("#extraContentContainer").show("slide", {direction: "up"}, 500);
+  
+  $("#hideContent").click(function(){
+    onHideContentClicked();
+  });
+}
+
+function onShowHolidaysClicked(){
+
+  var holidays = "";
+  
+  for(var i=0; i<holidayData.length; i++){
+    
+    var holidayClass = "extraContent";
+
+    if(i%2 == 0){
+      holidayClass += "1";
+    }
+    else{
+      holidayClass += "2";
+    }
+    
+    holidays += "<div class=\"" + holidayClass + "\">" +
+		     "<span class=\"extraContentBody\">" + holidayData[i].name + "</span><br />" +
+                     "</div>"
+  }
+  
+  if(holidays == ""){
+    holidays = "<div class=\"extraContent2\">" +
+		    "<span class=\"extraContentBody\">Today is not a holiday!  Sorry!</span><br />" +
+		    "</div>"
+  }
+
+  
+  $("#returnMessage").hide();
+  $("#extraContent").html(holidays);
   $("#extraContentContainer").show("slide", {direction: "up"}, 500);
   
   $("#hideContent").click(function(){
