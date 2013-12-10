@@ -148,7 +148,7 @@ function onShowTweetsClicked(){
     }
     
     tweets += "<div class=\"" + tweetClass + "\">" +
-		      "<span class=\"extraContentHead\">" + tweetData[i].user + "&nbsp;&nbsp;" + localDate + "</span><br />" + 
+		      "<span class=\"extraContentHead\">" + tweetData[i].user + "&nbsp;&nbsp;-&nbsp;&nbsp;" + localDate + "</span><br />" + 
 		      "<span class=\"extraContentBody\">" + tweetData[i].text + "</span><br />" +
                     "</div>"
   }
@@ -211,8 +211,9 @@ function onShowWeatherClicked(){
     }
     
     weatherAlerts += "<div class=\"" + weatherClass + "\">" +
-		      "<span class=\"extraContentBody\">" + weatherData[i].message + "</span><br />" +
-                    "</div>"
+		     "<span class=\"extraContentHead\">" + weatherData[i].description + "&nbsp;&nbsp;-&nbsp;&nbsp;" + weatherData[i].date + "</span><br />" +
+		     "<span class=\"extraContentBody\">" + weatherData[i].message + "</span><br />" +
+                     "</div>"
   }
   
   if(weatherAlerts == ""){
