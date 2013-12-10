@@ -106,7 +106,7 @@ function getExcuses(lat, lon, city, state){
 	});
 	
 	//Weather button
-	$("#returnMessage").append("<br /><input type=\"button\" id=\"showWeather\" class=\"excuseButton\" value=\"Weatherc&nbsp;(" + weatherData.length + ")\"/><br />");
+	$("#returnMessage").append("<br /><input type=\"button\" id=\"showWeather\" class=\"excuseButton\" value=\"Weather&nbsp;(" + weatherData.length + ")\"/><br />");
 	  
 	$("#showWeather").click(function(){
 	  onShowWeatherClicked();
@@ -119,17 +119,13 @@ function getExcuses(lat, lon, city, state){
 
 	  $("#returnMessage").hide()
 	  $("#extraContentContainer").hide();
-	  getExcuses(lat, lon);
+	  getExcuses(lat, lon, city, state);
 	});
 	
 	$("#returnMessage").append(responseJSON.elapsedTime)
     },
     error: function(xhr, textStatus, errorThrown){
-      
-//       $("#location").find("span").fadeOut(function(){
-// 	$(this).html("Could&nbsp;not&nbsp;resolve&nbsp;location:&nbsp;" + textStatus).fadeIn(1000);
-//       });
-      
+
     }
   });
 }
@@ -220,7 +216,7 @@ function onShowWeatherClicked(){
   }
   
   if(weatherAlerts == ""){
-    weatherAlerts = "<div class=\"" + extraContent1 + "\">" +
+    weatherAlerts = "<div class=\"" + extraContent2 + "\">" +
 		    "<span class=\"extraContentBody\">There are no weather alerts for your area!  Lucky you!</span><br />" +
 		    "</div>"
   }
