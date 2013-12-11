@@ -93,10 +93,10 @@ function getExcuses(lat, lon, city, state){
             
        //convert response string to object
 	var responseJSON = jQuery.parseJSON(data);
-	tweetData = responseJSON.tweetResults.tweets;
-	trafficData = responseJSON.trafficResults.incidents;
-	weatherData = responseJSON.weatherAlerts.alerts;
-	holidayData = responseJSON.holidays.holidays
+	tweetData = responseJSON.excuses.healthExcuse.tweets;
+	trafficData = responseJSON.excuses.trafficExcuse.traffic;
+	weatherData = responseJSON.excuses.weatherExcuse.weather;
+	holidayData = responseJSON.excuses.holidayExcuse.holidays;
       
 	$("#loading").hide();
 	$("#returnMessage").html("").fadeIn(1000);
