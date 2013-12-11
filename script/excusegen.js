@@ -4,6 +4,7 @@ var tweetData = [];
 var trafficData = [];
 var weatherData = [];
 var holidayData = [];
+var keywords = [];
 
 $(document).ready(function(){
   
@@ -94,6 +95,7 @@ function getExcuses(lat, lon, city, state){
        //convert response string to object
 	var responseJSON = jQuery.parseJSON(data);
 	tweetData = responseJSON.excuses.healthExcuse.tweets.tweets;
+	keywords = responseJSON.excuses.healthExcuse.keywords;
 	trafficData = responseJSON.excuses.trafficExcuse.traffic.incidents;
 	weatherData = responseJSON.excuses.weatherExcuse.weather.alerts;
 	holidayData = responseJSON.excuses.holidayExcuse.holidays.holidays;
