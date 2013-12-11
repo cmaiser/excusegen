@@ -139,7 +139,7 @@ function getExcuses(lat, lon, city, state){
 	  getExcuses(lat, lon, city, state);
 	});
 	
-	$("#returnMessage").append(responseJSON.elapsedTime)
+	$("#returnMessage").append(responseJSON.metadata.elapsedTime)
     },
     error: function(xhr, textStatus, errorThrown){
 
