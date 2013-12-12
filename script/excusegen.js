@@ -168,9 +168,9 @@ function onShowTweetsClicked(){
     
     //hilight keywords
     var text = tweetData[i].text;
-    for(var i=0; i<keywords.length; i++){
-      var matcher = new RegExp(keywords[i], "gi");
-      var repl = "<span class=\"keyword\">" + keywords[i] + "</span>";
+    for(var j=0; j<keywords.length; j++){
+      var matcher = new RegExp(keywords[j], "gi");
+      var repl = "<span class=\"keyword\">" + keywords[j] + "</span>";
       text = text.replace(matcher, repl);
     }
     
