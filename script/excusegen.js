@@ -103,34 +103,85 @@ function getExcuses(lat, lon, city, state){
 	$("#loading").hide();
 	$("#returnMessage").html("").fadeIn(1000);
 	
-	//Tweet button
-	$("#returnMessage").append("<input type=\"button\" id=\"showTweets\" class=\"excuseButton\" value=\"Tweets&nbsp;(" + tweetData.length + ")\"/><br />");
-	  
+	var divParentStart = "<div class =\"excuse\">";
+	var divBodyStart = "<div class =\"excuseBody\">";
+	var divDataStart = "<div class =\"excuseData\">";
+	var divEnd = "</div>"
+	
+	$("#returnMessage").append(divParentStart + 
+	                             divBodyStart + 
+	                               responseJSON.excuses.healthExcuse.text + 
+	                             divEnd +
+	                             divDataStart +
+	                               "<a id=\"showTweets\" class=\"gitlink\">See related Tweets</a>" +
+				     divEnd +
+				   divEnd;
+	                           
 	$("#showTweets").click(function(){
 	  onShowTweetsClicked();
 	});
-	
-	//Traffic button
-	$("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" class=\"excuseButton\" value=\"Traffic&nbsp;(" + trafficData.length + ")\"/><br />");
-	  
+
+	$("#returnMessage").append(divParentStart + 
+	                             divBodyStart + 
+	                               responseJSON.excuses.trafficExcuse.text + 
+	                             divEnd +
+	                             divDataStart +
+	                               "<a id=\"showTraffic\" class=\"gitlink\">See traffic alerts</a>" +
+				     divEnd +
+				   divEnd;
+	                           
 	$("#showTraffic").click(function(){
 	  onShowTrafficClicked();
 	});
-	
-	//Weather button
-	$("#returnMessage").append("<br /><input type=\"button\" id=\"showWeather\" class=\"excuseButton\" value=\"Weather&nbsp;(" + weatherData.length + ")\"/><br />");
-	  
+
+	$("#returnMessage").append(divParentStart + 
+	                             divBodyStart + 
+	                               responseJSON.excuses.weatherExcuse.text + 
+	                             divEnd +
+	                             divDataStart +
+	                               "<a id=\"showWeather\" class=\"gitlink\">See weather alerts</a>" +
+				     divEnd +
+				   divEnd;
+	                           
 	$("#showWeather").click(function(){
 	  onShowWeatherClicked();
 	});
-	
-	//Holiday button
-	$("#returnMessage").append("<br /><input type=\"button\" id=\"showHolidays\" class=\"excuseButton\" value=\"Holidays&nbsp;(" + holidayData.length + ")\"/><br />");
-	  
+
+	$("#returnMessage").append(divParentStart + 
+	                             divBodyStart + 
+	                               responseJSON.excuses.holidayExcuse.text + 
+	                             divEnd +
+	                             divDataStart +
+	                               "<a id=\"showHolidays\" class=\"gitlink\">See holidays</a>" +
+				     divEnd +
+				   divEnd;
+	                           
 	$("#showHolidays").click(function(){
 	  onShowHolidaysClicked();
 	});
+
 	
+// 	//Traffic button
+// 	$("#returnMessage").append("<br /><input type=\"button\" id=\"showTraffic\" class=\"excuseButton\" value=\"Traffic&nbsp;(" + trafficData.length + ")\"/><br />");
+// 	  
+// 	$("#showTraffic").click(function(){
+// 	  onShowTrafficClicked();
+// 	});
+// 	
+// 	//Weather button
+// 	$("#returnMessage").append("<br /><input type=\"button\" id=\"showWeather\" class=\"excuseButton\" value=\"Weather&nbsp;(" + weatherData.length + ")\"/><br />");
+// 	  
+// 	$("#showWeather").click(function(){
+// 	  onShowWeatherClicked();
+// 	});
+// 	
+// 	//Holiday button
+// 	$("#returnMessage").append("<br /><input type=\"button\" id=\"showHolidays\" class=\"excuseButton\" value=\"Holidays&nbsp;(" + holidayData.length + ")\"/><br />");
+// 	  
+// 	$("#showHolidays").click(function(){
+// 	  onShowHolidaysClicked();
+// 	});
+// 	
 	//Refresh button
 	$("#returnMessage").append("<br /><input type=\"button\" id=\"refreshData\" class=\"excuseButton\" value=\"Refresh Data\"/><br /><br />");
 	
@@ -298,9 +349,6 @@ function onShowHolidaysClicked(){
 function onHideContentClicked(){
   $("#extraContentContainer").hide("slide", {direction: "up"}, 500, function(){$("#returnMessage").show();});
 }
-
-
-
 
 
 
