@@ -110,7 +110,7 @@ function getExcuses(lat, lon, city, state){
 	
 	$("#returnMessage").append(divParentStart + 
 	                             divBodyStart + 
-	                               responseJSON.excuses.healthExcuse.text + 
+	                               "<h2>" + responseJSON.excuses.healthExcuse.text + "</h2>" +  
 	                             divEnd +
 	                             divDataStart +
 	                               "<a id=\"showTweets\" class=\"gitlink\">See related Tweets</a>" +
@@ -123,7 +123,7 @@ function getExcuses(lat, lon, city, state){
 
 	$("#returnMessage").append(divParentStart + 
 	                             divBodyStart + 
-	                               responseJSON.excuses.trafficExcuse.text + 
+	                               "<h2>" + responseJSON.excuses.trafficExcuse.text + "</h2>" + 
 	                             divEnd +
 	                             divDataStart +
 	                               "<a id=\"showTraffic\" class=\"gitlink\">See traffic alerts</a>" +
@@ -136,7 +136,7 @@ function getExcuses(lat, lon, city, state){
 
 	$("#returnMessage").append(divParentStart + 
 	                             divBodyStart + 
-	                               responseJSON.excuses.weatherExcuse.text + 
+	                               "<h2>" + responseJSON.excuses.weatherExcuse.text + "</h2>" +  
 	                             divEnd +
 	                             divDataStart +
 	                               "<a id=\"showWeather\" class=\"gitlink\">See weather alerts</a>" +
@@ -149,7 +149,7 @@ function getExcuses(lat, lon, city, state){
 
 	$("#returnMessage").append(divParentStart + 
 	                             divBodyStart + 
-	                               responseJSON.excuses.holidayExcuse.text + 
+	                               "<h2>" + responseJSON.excuses.holidayExcuse.text + "</h2>" + 
 	                             divEnd +
 	                             divDataStart +
 	                               "<a id=\"showHolidays\" class=\"gitlink\">See holidays</a>" +
