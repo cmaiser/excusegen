@@ -115,7 +115,7 @@ function getExcuses(lat, lon, city, state){
 	                             divDataStart +
 	                               "<a id=\"showTweets\" class=\"gitlink\">See related Tweets</a>" +
 				     divEnd +
-				   divEnd;
+				   divEnd);
 	                           
 	$("#showTweets").click(function(){
 	  onShowTweetsClicked();
@@ -128,7 +128,7 @@ function getExcuses(lat, lon, city, state){
 	                             divDataStart +
 	                               "<a id=\"showTraffic\" class=\"gitlink\">See traffic alerts</a>" +
 				     divEnd +
-				   divEnd;
+				   divEnd);
 	                           
 	$("#showTraffic").click(function(){
 	  onShowTrafficClicked();
@@ -141,7 +141,7 @@ function getExcuses(lat, lon, city, state){
 	                             divDataStart +
 	                               "<a id=\"showWeather\" class=\"gitlink\">See weather alerts</a>" +
 				     divEnd +
-				   divEnd;
+				   divEnd);
 	                           
 	$("#showWeather").click(function(){
 	  onShowWeatherClicked();
@@ -154,7 +154,7 @@ function getExcuses(lat, lon, city, state){
 	                             divDataStart +
 	                               "<a id=\"showHolidays\" class=\"gitlink\">See holidays</a>" +
 				     divEnd +
-				   divEnd;
+				   divEnd);
 	                           
 	$("#showHolidays").click(function(){
 	  onShowHolidaysClicked();
