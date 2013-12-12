@@ -166,9 +166,17 @@ function onShowTweetsClicked(){
       tweetClass += "2";
     }
     
+    //hilight keywords
+    var text = tweetData[i].text;
+    for(var i=0; i<keywords.length; i++){
+      var matcher = new RegExp(keyword[i], "gi");
+      var repl = "<span class=\"keyword\">" + keyword[i] + "</span>";
+      text = text.replace(matcher, repl);
+    }
+    
     tweets += "<div class=\"" + tweetClass + "\">" +
 		      "<span class=\"extraContentHead\">" + tweetData[i].user + "&nbsp;&nbsp;-&nbsp;&nbsp;" + localDate + "</span><br />" + 
-		      "<span class=\"extraContentBody\">" + tweetData[i].text + "</span><br />" +
+		      "<span class=\"extraContentBody\">" + text + "</span><br />" +
                     "</div>"
   }
 
