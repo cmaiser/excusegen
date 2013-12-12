@@ -74,17 +74,19 @@
       height: 40px;
       background: #eeeeee;
       border-radius: 5px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .excuseBody{
       height: 25px;
       text-align:left;
-      padding: 0px 3px 0px 3px;
+      padding: 2px 3px 0px 3px;
     }
     .excuseData{
       text-align: right;
       padding: 2px;
-      padding: 0px 3px 0px 3px;
+      padding: 0px 3px 2px 3px;
     }
     
     .excuseButton {
