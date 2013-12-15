@@ -326,7 +326,7 @@ function onShowHolidaysClicked(){
     }
     
     holidays += "<div class=\"" + holidayClass + "\">" +
-		     "<span class=\"extraContentBody\">" + holidayData[i].name + "</span><br />" +
+		     "<span class=\"extraContentBody\">" + holidayData[i] + "</span><br />" +
                      "</div>"
   }
   
