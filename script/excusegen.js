@@ -257,7 +257,7 @@ function onShowTrafficClicked(){
     
     trafficIncidents += "<div class=\"" + trafficClass + "\">" +
                       "<img src=\"" + trafficData[i].iconURL + "\" class=\"trafficImage\" />" +
-		      "<span class=\"extraContentBody\">" + trafficData[i].fullDesc + "</span><br />" +
+		      "<span class=\"extraContentBody\">Severity: " + trafficData[i].severity + "/4 - " + trafficData[i].fullDesc + "</span><br />" +
                     "</div>"
   }
 
