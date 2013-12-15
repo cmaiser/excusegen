@@ -4,7 +4,6 @@ var tweetData = [];
 var trafficData = [];
 var weatherData = [];
 var holidayData = [];
-var keywords = [];
 
 $(document).ready(function(){
   
@@ -95,7 +94,6 @@ function getExcuses(lat, lon, city, state){
        //convert response string to object
 	var responseJSON = jQuery.parseJSON(data);
 	tweetData = responseJSON.excuses.healthExcuse.tweets.tweets;
-	keywords = responseJSON.excuses.healthExcuse.keywords;
 	trafficData = responseJSON.excuses.trafficExcuse.traffic.incidents;
 	weatherData = responseJSON.excuses.weatherExcuse.weather.alerts;
 	holidayData = responseJSON.excuses.holidayExcuse.holidays;
@@ -219,7 +217,7 @@ function onShowTweetsClicked(){
     
     //hilight keywords
     var text = tweetData[i].text;
-    for(var j=0; j<keywords.length; j++){
+    for(var j=0; j<tweetData.keywords.length; j++){
       var matcher = new RegExp(keywords[j], "gi");
       var repl = "<span class=\"keyword\">" + keywords[j] + "</span>";
       text = text.replace(matcher, repl);
