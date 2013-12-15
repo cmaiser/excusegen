@@ -98,7 +98,7 @@ function getExcuses(lat, lon, city, state){
 	keywords = responseJSON.excuses.healthExcuse.keywords;
 	trafficData = responseJSON.excuses.trafficExcuse.traffic.incidents;
 	weatherData = responseJSON.excuses.weatherExcuse.weather.alerts;
-	holidayData = responseJSON.excuses.holidayExcuse.holidays.holidays;
+	holidayData = responseJSON.excuses.holidayExcuse.holidays;
       
 	$("#loading").hide();
 	$("#returnMessage").html("").fadeIn(1000);
