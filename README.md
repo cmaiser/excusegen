@@ -1,4 +1,3 @@
-excusegen
+justification
 =========
-This is a test.
-Generator of excuses
+This is
